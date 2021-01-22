@@ -32,7 +32,8 @@
   },
   "scripts": {
     "start": "ts-node index.dev.ts",
-    "watch": "ts-node-dev --respawn index.dev.ts"
+    "watch": "ts-node-dev --respawn index.dev.ts",
+    "typeorm": "ts-node ./node_modules/typeorm/cli.js"
   },
   "_moduleAliases": {
     "#root": "./src"

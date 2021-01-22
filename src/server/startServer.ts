@@ -5,8 +5,10 @@ import cookieParser from "cookie-parser";
 
 import accessEnv from "#root/helpers/accessEnv";
 
-import authRoutes from "./routes/auth";
 import trim from "./middlewares/trim";
+import authRoutes from "./routes/auth";
+import postRoutes from "./routes/posts";
+import subRoutes from "./routes/subs";
 
 const PORT = parseInt(accessEnv("PORT", "5000"), 10);
 
@@ -27,6 +29,8 @@ const startServer = () => {
 
   app.get("/", (_req, res) => res.send("Hello World"));
   app.use("/api/auth", authRoutes);
+  app.use("/api/posts", postRoutes);
+  app.use("/api/subs", subRoutes);
 
   app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
     return res.status(500).json({ message: err.message });

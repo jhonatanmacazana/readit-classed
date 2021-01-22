@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 
-import { User } from "#root/db/entities/User";
+import User from "#root/db/entities/User";
 import accessEnv from "#root/helpers/accessEnv";
 
 const auth = async (req: Request, res: Response, next: NextFunction) => {

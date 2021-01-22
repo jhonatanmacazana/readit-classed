@@ -4,7 +4,7 @@ import { Request, Response, Router } from "express";
 import jwt from "jsonwebtoken";
 import cookie from "cookie";
 
-import { User } from "#root/db/entities/User";
+import User from "#root/db/entities/User";
 import accessEnv from "#root/helpers/accessEnv";
 import auth from "#root/server/middlewares/auth";
 
