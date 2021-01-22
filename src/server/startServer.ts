@@ -1,6 +1,7 @@
 import cors from "cors";
 import express, { NextFunction, Request, Response } from "express";
 import morgan from "morgan";
+import cookieParser from "cookie-parser";
 
 import accessEnv from "#root/helpers/accessEnv";
 
@@ -15,6 +16,7 @@ const startServer = () => {
   app.use(express.json());
   app.use(morgan("dev"));
   app.use(trim);
+  app.use(cookieParser());
 
   app.use(
     cors({
