@@ -32,9 +32,11 @@
     "typeorm": "^0.2.30"
   },
   "scripts": {
+    "db:migrate": "ts-node ./node_modules/typeorm/cli.js migration:run",
+    "db:migrate:undo": "ts-node ./node_modules/typeorm/cli.js migration:revert",
     "start": "ts-node index.dev.ts",
-    "watch": "ts-node-dev --respawn index.dev.ts",
-    "typeorm": "ts-node ./node_modules/typeorm/cli.js"
+    "typeorm": "ts-node ./node_modules/typeorm/cli.js",
+    "watch": "ts-node-dev --respawn index.dev.ts"
   },
   "_moduleAliases": {
     "#root": "./src"
