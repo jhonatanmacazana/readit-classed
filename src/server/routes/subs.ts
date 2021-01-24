@@ -1,5 +1,5 @@
-import { Request, Response, Router } from "express";
 import { isEmpty } from "class-validator";
+import { Request, Response, Router } from "express";
 import { getRepository } from "typeorm";
 
 import User from "#root/db/entities/User";

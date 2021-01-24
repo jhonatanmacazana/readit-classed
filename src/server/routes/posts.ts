@@ -25,8 +25,6 @@ const createPost = async (req: Request, res: Response) => {
     console.log(err);
     return res.status(500).json({ error: "Something went wrong" });
   }
-
-  return res.json();
 };
 
 const router = Router();

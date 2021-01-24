@@ -1,8 +1,8 @@
 import bcrypt from "bcrypt";
 import { isEmpty, validate } from "class-validator";
+import cookie from "cookie";
 import { Request, Response, Router } from "express";
 import jwt from "jsonwebtoken";
-import cookie from "cookie";
 
 import User from "#root/db/entities/User";
 import accessEnv from "#root/helpers/accessEnv";
@@ -79,7 +79,10 @@ const login = async (req: Request, res: Response) => {
     );
 
     return res.json(user);
-  } catch (err) {}
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json(err);
+  }
 };
 
 const me = (_req: Request, res: Response) => {

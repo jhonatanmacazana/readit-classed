@@ -1,5 +1,3 @@
-import makeId from "#root/helpers/makeId";
-import sluggify from "#root/helpers/sluggify";
 import {
   BeforeInsert,
   Column,
@@ -8,6 +6,9 @@ import {
   JoinColumn,
   ManyToOne,
 } from "typeorm";
+
+import makeId from "#root/helpers/makeId";
+import sluggify from "#root/helpers/sluggify";
 
 import Entity from "./Entity";
 import Sub from "./Sub";
