@@ -6,10 +6,10 @@ import "../styles/globals.css";
 import theme from "../config/theme";
 
 const GlobalStyle = createGlobalStyle`
-  /* body {
-    background-color: ${props => props.theme.jade};
-    font-family: "Lato", sans-serif;
-  } */
+  body {
+    /* background-color: ${props => props.theme.jade}; */
+    font-family: "IBM Plex Sans", sans-serif;
+  }
 `;
 
 const App = ({ Component, pageProps }: AppProps) => {
