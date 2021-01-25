@@ -73,15 +73,23 @@ const Label = styled.div`
 
 const TextInput = styled.input`
   width: 100%;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  background-color: rgba(243, 244, 246, 1);
+  padding: 0.75rem;
+  background-color: rgba(249, 250, 251, 1);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
   border-width: 1px;
-  border-color: rgba(156, 163, 175, 1);
+  border-color: rgba(209, 213, 219, 1);
   border-radius: 0.25rem;
-  margin-right: 0.25rem;
+  :focus {
+    background-color: white;
+  }
+  :hover {
+    background-color: white;
+  }
+  transition-property: background-color, border-color, color, fill, stroke,
+    opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
 `;
 
 const Button = styled.button`
