@@ -6,6 +6,7 @@ import jwt from "jsonwebtoken";
 
 import User from "#root/db/entities/User";
 import accessEnv from "#root/helpers/accessEnv";
+import mapErrors from "#root/helpers/mapErrors";
 import auth from "#root/server/middlewares/auth";
 
 const register = async (req: Request, res: Response) => {
@@ -29,7 +30,7 @@ const register = async (req: Request, res: Response) => {
     errors = await validate(user);
 
     if (errors.length > 0) {
-      return res.status(400).json({ errors });
+      return res.status(400).json(mapErrors(errors));
     }
     await user.save();
 
