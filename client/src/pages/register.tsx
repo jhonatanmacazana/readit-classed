@@ -94,15 +94,15 @@ const Button = styled.button`
   font-weight: 700;
   color: rgba(255, 255, 255, 1);
   text-transform: uppercase;
-  background-color: rgba(59, 130, 246, 1);
+  background-color: ${props => props.theme.navyBlue};
   border-width: 1px;
-  border-color: rgba(59, 130, 246, 1);
+  border-color: ${props => props.theme.navyBlue};
   border-radius: 0.25rem;
 `;
 
 const ALogin = styled.a`
   margin-left: 0.25rem;
-  color: rgba(59, 130, 246, 1);
+  color: ${props => props.theme.navyBlue};
   text-transform: uppercase;
 `;
 

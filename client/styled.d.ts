@@ -9,5 +9,6 @@ declare module "styled-components" {
       secondary: string;
     };
     jade: string;
+    navyBlue: string;
   }
 }
