@@ -7,7 +7,6 @@ import styled from "styled-components";
 
 import serverRequest from "#root/api/serverRequest";
 import InputGroup from "#root/components/InputGroup";
-import Error from "#root/components/Shared/ErrorSmall";
 
 const Wrapper = styled.div`
   display: flex;
@@ -45,25 +44,6 @@ const Paragraph = styled.p`
   margin-bottom: 2.5rem;
 `;
 
-const CheckWrapper = styled.div`
-  margin-bottom: 1.5rem;
-`;
-
-const CheckInput = styled.input`
-  cursor: pointer;
-  margin-right: 0.25rem;
-`;
-
-const CheckLabel = styled.label`
-  cursor: pointer;
-  font-size: 0.75rem;
-  line-height: 1rem;
-`;
-
-const ErrorBlock = styled(Error)`
-  display: block;
-`;
-
 const Button = styled.button`
   width: 100%;
   padding-top: 0.5rem;
@@ -86,68 +66,40 @@ const ALogin = styled.a`
   text-transform: uppercase;
 `;
 
-const Register = () => {
+const Login = () => {
   const { handleSubmit, register } = useForm({ mode: "onChange" });
 
   const [errors, setErrors] = useState<any>({});
 
   const router = useRouter();
 
-  const onSubmit = handleSubmit(
-    async ({ agreement, email, password, username }) => {
-      if (!agreement) {
-        setErrors(errs => ({ ...errs, agreement: "You must agree to T&Cs" }));
-        return;
-      }
-      try {
-        await serverRequest.post("/auth/register", {
-          email,
-          password,
-          username,
-        });
-        router.push("/login");
-      } catch (err) {
-        setErrors(err.response.data);
-      }
+  const onSubmit = handleSubmit(async ({ password, username }) => {
+    try {
+      await serverRequest.post("/auth/login", {
+        password,
+        username,
+      });
+      router.push("/");
+    } catch (err) {
+      setErrors(err.response.data);
     }
-  );
+  });
 
   return (
     <Wrapper>
       <Head>
-        <title>Register</title>
+        <title>Login</title>
       </Head>
 
       <ImageWrapper />
       <FormWrapper>
         <TextContainer>
-          <Title>Sign Up</Title>
+          <Title>Login</Title>
           <Paragraph>
             By continuing, you agree to our User Agreements and Privacy Policy
           </Paragraph>
 
           <form onSubmit={onSubmit}>
-            <CheckWrapper>
-              <CheckInput
-                id="agreement"
-                name="agreement"
-                type="checkbox"
-                ref={register}
-              />
-              <CheckLabel htmlFor="agreement">
-                I agree to get emails about cool stuff on Readit
-              </CheckLabel>
-
-              <ErrorBlock>{errors.agreement}</ErrorBlock>
-            </CheckWrapper>
-
-            <InputGroup
-              error={errors.email}
-              name="email"
-              placeholder="EMAIL"
-              reference={register}
-              type="email"
-            />
             <InputGroup
               error={errors.username}
               name="username"
@@ -163,13 +115,13 @@ const Register = () => {
               type="password"
             />
 
-            <Button type="submit">Sign Up</Button>
+            <Button type="submit">Login</Button>
           </form>
 
           <small>
-            Already a readitor ?
-            <Link href="/login">
-              <ALogin>Log In</ALogin>
+            New to readit ?
+            <Link href="/register">
+              <ALogin>Sign Up</ALogin>
             </Link>
           </small>
         </TextContainer>
@@ -178,4 +130,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;

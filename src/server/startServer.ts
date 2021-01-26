@@ -22,8 +22,9 @@ const startServer = () => {
 
   app.use(
     cors({
-      origin: (_origin, cb) => cb(null, true),
       credentials: true,
+      optionsSuccessStatus: 200,
+      origin: accessEnv("ORIGIN", "http://localhost:3000"),
     })
   );
 
