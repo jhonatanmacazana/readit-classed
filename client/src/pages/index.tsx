@@ -1,19 +1,13 @@
 import Head from "next/head";
-// import styles from '../styles/Home.module.css'
 
-export default function Home() {
+const Home = () => {
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>readit: the frontpage of the internet</title>
       </Head>
-
-      <main>
-        <h1>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-      </main>
     </div>
   );
-}
+};
+
+export default Home;

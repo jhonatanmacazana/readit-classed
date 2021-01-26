@@ -10,6 +10,7 @@ import InputGroup from "#root/components/InputGroup";
 
 const Wrapper = styled.div`
   display: flex;
+  background-color: white;
 `;
 
 const ImageWrapper = styled.div`

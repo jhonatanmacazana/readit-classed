@@ -11,6 +11,7 @@ import Error from "#root/components/Shared/ErrorSmall";
 
 const Wrapper = styled.div`
   display: flex;
+  background-color: white;
 `;
 
 const ImageWrapper = styled.div`
