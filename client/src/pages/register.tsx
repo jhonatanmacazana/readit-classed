@@ -97,7 +97,10 @@ const Register = () => {
   const onSubmit = handleSubmit(
     async ({ agreement, email, password, username }) => {
       if (!agreement) {
-        setErrors(errs => ({ ...errs, agreement: "You must agree to T&Cs" }));
+        setErrors((errs: any) => ({
+          ...errs,
+          agreement: "You must agree to T&Cs",
+        }));
         return;
       }
       try {
